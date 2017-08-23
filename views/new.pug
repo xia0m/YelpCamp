@@ -1,0 +1,16 @@
+
+include header.pug
+
+.container
+    .row
+        h1(style="text-align:center") Create a new Campgrounds
+        div(style="width:30%;margin:25px auto")
+            form(action="/campgrounds" method="POST")
+                .form-group
+                    input(class="form-control" type="text",name="name",placeholder="name")
+                .form-group
+                    input(class="form-control" type="text",name="image",placeholder="Image URL")
+                .form-group
+                    button.btn.btn-lg.btn-primary.btn-block Submit!
+                a(href="/campgrounds") Go Back
+include footer.pug

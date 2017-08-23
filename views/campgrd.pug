@@ -1,0 +1,18 @@
+include header.pug
+div.container
+    header.jumbotron
+        div.container
+            h1 Welcome to YelpCamp!
+                p View our hand-picked campgrounds from all over the world
+                p   
+                    a(class="btn btn-primary btn-lg" href="/campgrounds/new") Add New CampGround
+            
+        div(class="row text-center",style="display:flex;flex-wrap:wrap;")
+            for camp in message
+                div(class="col-md-3 col-sm-6")
+                    div.thumbnail
+                        img(src= camp.image)
+                        div.caption
+                            h4= camp.name
+                            
+include footer.pug
