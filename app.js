@@ -16,47 +16,13 @@ app.set("view engine", "pug");
 
 
 
-// Campground.create({
-//     name:"Salmon Creek",
-//     image:"https://farm4.staticflickr.com/3872/14435096036_39db8f04bc.jpg"
-// },function(err,campground){
-//     if(err){
-//         console.log(err);
-//     } 
-//     else{
-//         console.log("newly Created campground: ");
-//         console.log(campground);
-//     }
-// });
-
-// Campground.create({
-//     name:"Granite Hill",
-//     image:"https://farm4.staticflickr.com/3872/14435096036_39db8f04bc.jpg",
-//     description:"This is a huge grantie hill, no bathroom, no water. Beautiful"
-// },function(err,campground){
-//     if(err){
-//         console.log(err);
-//     } 
-//     else{
-//         console.log("newly Created campground: ");
-//         console.log(campground);
-//     }
-// });
 
 
 app.get("/", (req, res) => {
     res.render("landing");
 });
 
-// app.get("/campgrounds",(req,res)=>{
-//     var campgrounds = [
-//         {name:"Salmon Creek",image:"https://farm6.staticflickr.com/5181/5641024448_04fefbb64d.jpg"},
-//         {name:"Granite Hill",image:"https://farm4.staticflickr.com/3872/14435096036_39db8f04bc.jpg"},
-//         {name:"Yosimite",image:"https://farm3.staticflickr.com/2535/3823437635_c712decf64.jpg"}
-//     ];
 
-//     res.render("campgrounds",{campgrounds:campgrounds})
-// })
 
 var campgrounds = [{
         name: "Salmon Creek",
@@ -135,10 +101,11 @@ app.get("/campgrounds/new", (req, res) => {
 //SHOW - shows more info about on campground
 app.get("/campgrounds/:id",(req,res)=>{
     //find the campground with providd ID
-    Campground.findById(req.params.id,function(err,foundCampground){
+    Campground.findById(req.params.id).populate("comments").exec(function(err,foundCampground){
         if(err){
             console.log(err);
         } else {
+            console.log(foundCampground);
             res.render("show",{campground:foundCampground});
         }
     });

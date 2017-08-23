@@ -4,4 +4,7 @@ h1= campground.name
 
 img(src=campground.image)
 
-p= campground.description
+p #{campground.description}
+
+for comment in campground.comments
+    p <strong>#{comment.author}</strong> -  #{comment.text}
