@@ -1,0 +1,16 @@
+include ../header.pug
+
+h1= campground.name
+
+img(src=campground.image)
+
+p #{campground.description}
+
+p 
+    a(class="btn btn-success" href="/campgrounds/"+ campground._id + "/comments/new") Add New Comment
+    href
+
+for comment in campground.comments
+    p <strong>#{comment.author}</strong> -  #{comment.text}
+
+include ../footer.pug
