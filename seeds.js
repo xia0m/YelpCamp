@@ -4,14 +4,33 @@ var Comment = require("./models/comment");
 
 var data = [
     {name:"High Garden",
-     image:"https://goo.gl/vg3zHS",
-     description:"first"},
+     image:"https://source.unsplash.com/tPKQwYHy8q4/1600x900",
+     description:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+     Donec dictum est elit, ut ornare ante feugiat vel.Vestibulum nec cursus enim, 
+     in cursus sapien. Nunc ut lacus ante. Morbi ornare ligula in purus consequat, 
+     a rhoncus mi iaculis.  Proin laoreet tortor ac lorem venenatis gravida. 
+     Maecenas mollis iaculis mauris. Duis tempor malesuada felis, ut egestas nulla pharetra id.`},
      {name:"King's Landing",
-     image:"https://goo.gl/Dr86Va",
-     description:"second"},
+     image:"https://source.unsplash.com/sx567MsyF7M/1600x900",
+     description:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+     Donec dictum est elit, ut ornare ante feugiat vel.Vestibulum nec cursus enim, 
+     in cursus sapien. Nunc ut lacus ante. Morbi ornare ligula in purus consequat, 
+     a rhoncus mi iaculis.  Proin laoreet tortor ac lorem venenatis gravida. 
+     Maecenas mollis iaculis mauris. Duis tempor malesuada felis, ut egestas nulla pharetra id.`},
      {name:"Winterfell",
-     image:"https://goo.gl/KTAW8h",
-     description:"third"}
+     image:"https://source.unsplash.com/5i664o1oY4c/1600x900",
+     description:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+     Donec dictum est elit, ut ornare ante feugiat vel.Vestibulum nec cursus enim, 
+     in cursus sapien. Nunc ut lacus ante. Morbi ornare ligula in purus consequat, 
+     a rhoncus mi iaculis.  Proin laoreet tortor ac lorem venenatis gravida. 
+     Maecenas mollis iaculis mauris. Duis tempor malesuada felis, ut egestas nulla pharetra id.`},
+     {name:"River Run",
+     image:"https://source.unsplash.com/tOsKxvyNyDw/1600x900",
+     description:`Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+     Donec dictum est elit, ut ornare ante feugiat vel.Vestibulum nec cursus enim, 
+     in cursus sapien. Nunc ut lacus ante. Morbi ornare ligula in purus consequat, 
+     a rhoncus mi iaculis.  Proin laoreet tortor ac lorem venenatis gravida. 
+     Maecenas mollis iaculis mauris. Duis tempor malesuada felis, ut egestas nulla pharetra id.`}
 ];
 
 function seedDB(){
@@ -48,6 +67,5 @@ function seedDB(){
 };
 
 module.exports = seedDB;
-
 
 
