@@ -12,6 +12,9 @@ html
                     a(class="navbar-brand",href="/") YelpCamp
                 .collapse.navbar-collapse
                     ul.nav.navbar-nav.navbar-right
-                        li: a(href="/") Login
-                        li: a(href="/") Sign Up
-                        li: a(href="/") Logout
+                        if(!currentUser)
+                            li: a(href="/login") Login
+                            li: a(href="/register") Sign Up
+                        else
+                            li: a(href="#") Signed In as #{currentUser.username}
+                            li: a(href="/logout") Logout
