@@ -15,6 +15,9 @@ include ../header.pug
                     h4 <a>#{campground.name}</a>
                     p #{campground.description}
                     p <em>Submitted By #{campground.author.username}</em>
+                    a(href="/campgrounds/"+campground._id+"/edit" class="btn btn-danger") Edit
+                    form(id="delete-form" action="/campgrounds/"+ campground._id+ "?_method=DELETE", method="POST")
+                        button.btn.btn-danger Delete
             .well
                 .text-right
                     a(class="btn btn-success" href="/campgrounds/"+ campground._id + "/comments/new") Add New Comment
