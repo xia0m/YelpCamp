@@ -8,8 +8,7 @@ include ../header.pug
             form(action="/campgrounds/"+ campground._id+"/comments" method="POST")
                 .form-group
                     input(class="form-control" type="text",name="comment[text]",placeholder="Text")
-                .form-group
-                    input(class="form-control" type="text",name="comment[author]",placeholder="Author")
+                
                 
                 .form-group
                     button.btn.btn-lg.btn-primary.btn-block Submit!
