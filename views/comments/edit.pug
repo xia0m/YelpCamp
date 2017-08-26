@@ -1,0 +1,13 @@
+include ../header.pug
+
+.container
+    .row
+        h1(style="text-align:center") Edit 
+        div(style="width:30%;margin:25px auto")
+            form(action="/campgrounds/"+ campground_id+"/comments/"+ comment._id+"?_method=PUT" method="POST")
+                .form-group
+                    input(class="form-control" type="text",name="comment[text]",value=comment.text)
+                .form-group
+                    button.btn.btn-lg.btn-primary.btn-block Submit!
+                a(href="/campgrounds") Go Back
+include ../footer.pug
