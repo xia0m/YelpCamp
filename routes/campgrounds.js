@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
         if(err) console.log(err);
         else {
             res.render("campgrounds/index", {
-                message: campgrounds
+                campgrounds: campgrounds
             });
         }
     })
