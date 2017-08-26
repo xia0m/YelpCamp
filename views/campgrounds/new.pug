@@ -9,6 +9,8 @@ include ../header.pug
                 .form-group
                     input(class="form-control" type="text",name="name",placeholder="Name")
                 .form-group
+                    input(class="form-control" type="number",name="price",placeholder="price",min="0.01",step="0.01")
+                .form-group
                     input(class="form-control" type="text",name="image",placeholder="Image URL")
                 .form-group
                     input(class="form-control" type="text",name="description",placeholder="Description")
