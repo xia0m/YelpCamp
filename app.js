@@ -18,7 +18,7 @@ var indexRoutes = require("./routes/index");
 
 // mongoose.connect("mongodb://localhost/yelp_camp_v8",{useMongoClient:true});
 // console.log(process.env.DATABASEURL);
-mongoose.connect(process.env.DATABASEURL);
+mongoose.connect("mongodb+srv://Myls:W6wmnbKSRM0cR3c5@cluster0.vrbmo.mongodb.net/YelpCamp?retryWrites=true&w=majority");
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -27,7 +27,7 @@ app.set("view engine", "pug");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
-//seedDB();
+seedDB();
 
 //Passport Configuation
 app.use(require("express-session")({
