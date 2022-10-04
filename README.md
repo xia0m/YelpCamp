@@ -1,24 +1,23 @@
-# [YelpCamp](https://sheltered-hamlet-33362.herokuapp.com/)
+# [YelpCamp](https://yelpcamp.alexma.one/)
 
-This is a Node.js application inspired by Colt Steele's Udemy course. For a live demo, click [here](https://sheltered-hamlet-33362.herokuapp.com/)
+This is a Node.js application inspired by Colt Steele's Udemy course. For a live demo, click [here](https://yelpcamp.alexma.one/)
 
 ## Table of Content
-* [Installation](#installation)
-* [Usage](#usage)
-* [Deployment](#deployment)
-* [TechStack](#techstack)
-* [License](#license)
+- [YelpCamp](#yelpcamp)
+  - [Table of Content](#table-of-content)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Deployment](#deployment)
+  - [TechStack](#techstack)
+  - [LICENSE](#license)
 
 ## Installation
+Create a new file named `.env`, add a new environment viriable DATABASEURL that equals to mongo uri
 ```
   git clone 
   cd 
   npm install
   npm start
-```
-Change the following line
-```
-mongoose.connect(<your local or hosted mongoDB address>);
 ```
 
 ## Usage

@@ -18,13 +18,12 @@ const indexRoutes = require("./routes/index");
 
 
 try {
-    const mongoDB = process.env.DATABASEURL;
-    console.log('url is ', mongoDB);
-    mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true}, () => {
+    const mongoUri = process.env.DATABASEURL;
+    mongoose.connect(mongoUri, {useNewUrlParser: true, useUnifiedTopology: true}, () => {
         console.log('mongoose is connected');
     });
 } catch (e) {
-    console.error("Could not connect to mongoDB")
+    console.error("Could not connect to mongoDB", e)
 }
 
 
