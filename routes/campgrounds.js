@@ -1,10 +1,9 @@
-var express = require("express");
-var router = express.Router();
-var Campground = require("../models/campground");
-var middleware = require("../middleware");
+const express = require("express");
+const router = express.Router();
+const Campground = require("../models/campground");
+const middleware = require("../middleware");
 
 router.get("/", (req, res) => {
-    
     Campground.find({},function(err,campgrounds){
         if(err) console.log(err);
         else {
@@ -17,15 +16,15 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", middleware.isLoggedIn,(req, res) => {
-    var name = req.body.name;
-    var price = req.body.price;
-    var image = req.body.image;
-    var desc = req.body.description;
-    var author = {
+    const name = req.body.name;
+    const price = req.body.price;
+    const image = req.body.image;
+    const desc = req.body.description;
+    const author = {
         id:req.user._id,
         username:req.user.username
     }
-    var newCampground = {
+    const newCampground = {
         name: name,
         price: price,
         image: image,

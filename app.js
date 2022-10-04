@@ -1,24 +1,32 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var app = express();
-var mongoose = require("mongoose");
-var Campground = require("./models/campground");
-var seedDB = require("./seeds");
-var flash = require("connect-flash");
-var Comment = require("./models/comment");
-var passport = require("passport");
-var LocalStrategy = require("passport-local");
-var User = require("./models/user");
-var methodOverride = require("method-override");
+const express = require("express");
+const bodyParser = require("body-parser");
+const app = express();
+const mongoose = require("mongoose");
+const Campground = require("./models/campground");
+const seedDB = require("./seeds");
+const flash = require("connect-flash");
+const Comment = require("./models/comment");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const User = require("./models/user");
+const methodOverride = require("method-override");
+
+require('dotenv').config()
+const commentRoutes = require("./routes/comments");
+const campgroundRoutes = require("./routes/campgrounds");
+const indexRoutes = require("./routes/index");
 
 
-var commentRoutes = require("./routes/comments");
-var campgroundRoutes = require("./routes/campgrounds");
-var indexRoutes = require("./routes/index");
+try {
+    const mongoDB = process.env.DATABASEURL;
+    console.log('url is ', mongoDB);
+    mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true}, () => {
+        console.log('mongoose is connected');
+    });
+} catch (e) {
+    console.error("Could not connect to mongoDB")
+}
 
-// mongoose.connect("mongodb://localhost/yelp_camp_v8",{useMongoClient:true});
-// console.log(process.env.DATABASEURL);
-mongoose.connect("mongodb+srv://Myls:W6wmnbKSRM0cR3c5@cluster0.vrbmo.mongodb.net/YelpCamp?retryWrites=true&w=majority");
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -27,7 +35,7 @@ app.set("view engine", "pug");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
-seedDB();
+// seedDB();
 
 //Passport Configuation
 app.use(require("express-session")({
@@ -47,8 +55,9 @@ app.use((req,res,next)=>{
     res.locals.success = req.flash("success");
     next();
 });
-app.use("/",indexRoutes);
-app.use("/campgrounds",campgroundRoutes);
+
+app.use("/", indexRoutes);
+app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments",commentRoutes);
 
 app.listen(process.env.PORT||3000, function () {
